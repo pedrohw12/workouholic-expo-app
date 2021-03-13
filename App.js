@@ -1,21 +1,85 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
 
-export default function App() {
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+
+// Icons
+import {
+  AntDesign,
+  Ionicons,
+  MaterialIcons,
+  Feather,
+} from "@expo/vector-icons";
+
+// Screens
+// Tab
+import Search from "./src/screens/search";
+import Settings from "./src/screens/settings";
+import Add from "./src/screens/add";
+import Favorites from "./src/screens/favorites";
+// Stack
+import Details from "./src/screens/details";
+
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function TabNavigator() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: "#000",
+      }}
+      headerMode="none"
+    >
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="search1" size={24} color="black" />
+          ),
+        }}
+        name="BUSCAR"
+        component={Search}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="add" size={30} color="black" />
+          ),
+        }}
+        name="ADICIONAR"
+        component={Add}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="favorite-border" size={24} color="black" />
+          ),
+        }}
+        name="FAVORITOS"
+        component={Favorites}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="settings" size={24} color="black" />
+          ),
+        }}
+        name="CONFIGURAÇÕES"
+        component={Settings}
+      />
+    </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function StackNavigator() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator headerMode="none">
+        <Stack.Screen name="Home" component={TabNavigator} />
+        <Stack.Screen name="Detalhe" component={Details} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}

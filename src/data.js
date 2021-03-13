@@ -1,0 +1,298 @@
+const data = [
+  {
+    name: "Peito + ombro",
+    author: "Pedro Wanderley",
+    type: "exercise",
+    content: [
+      {
+        ex: "Supino reto",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Supino inclinado com halteres",
+        rep: "4x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Cross-over",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca direta na barra w",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca alternada",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca scott",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca no pulley",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+    ],
+  },
+  {
+    name: "Ficha",
+    author: "Waldemar Guimarães",
+    type: "list",
+    content: [
+      {
+        ex: "Supino reto",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Supino inclinado com halteres",
+        rep: "4x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Cross-over",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca direta na barra w",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca alternada",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca scott",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca no pulley",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+    ],
+  },
+  {
+    name: "Periodização ABC",
+    author: "Felipe Franco",
+    type: "period",
+    content: [
+      {
+        ex: "Supino reto",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Supino inclinado com halteres",
+        rep: "4x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Cross-over",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca direta na barra w",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca alternada",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca scott",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca no pulley",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+    ],
+  },
+  {
+    name: "Dorsais",
+    author: "Mr Saizen",
+    type: "exercise",
+    content: [
+      {
+        ex: "Supino reto",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Supino inclinado com halteres",
+        rep: "4x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Cross-over",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca direta na barra w",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca alternada",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca scott",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca no pulley",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+    ],
+  },
+  {
+    name: "Pernas",
+    author: "Mr Saizen",
+    type: "exercise",
+    content: [
+      {
+        ex: "Supino reto",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Supino inclinado com halteres",
+        rep: "4x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Cross-over",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca direta na barra w",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca alternada",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca scott",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca no pulley",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+    ],
+  },
+  {
+    name: "Biceps + triceps",
+    author: "Mr Saizen",
+    type: "exercise",
+    content: [
+      {
+        ex: "Supino reto",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Supino inclinado com halteres",
+        rep: "4x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Cross-over",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca direta na barra w",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca alternada",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca scott",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+      {
+        ex: "Rosca no pulley",
+        rep: "3x12",
+        rest: "60s de descanso",
+        info: "Fazer com forma perfeita e focar no pico de contração",
+      },
+    ],
+  },
+];
+
+export default data;
