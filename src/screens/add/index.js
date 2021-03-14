@@ -1,12 +1,15 @@
-import React from "react";
-import { SafeAreaView } from "react-native";
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/core";
+import { Alert, SafeAreaView } from "react-native";
 
 // Components
 import Header from "../../components/Header";
 import Radio from "../../components/Radio";
 import ScreenContainer from "../../components/Screen-container";
 import Input from "../../components/Input";
+
+// Icons
+import { AntDesign } from "@expo/vector-icons";
 
 // Styles
 import {
@@ -16,7 +19,8 @@ import {
   NewExercise,
   ExercisesList,
   Title,
-  DeletExerciseButton,
+  ExerciseTitle,
+  SaveButton,
 } from "./styles";
 
 const newWorkoutOptions = [
@@ -35,36 +39,44 @@ const newWorkoutOptions = [
 ];
 
 const Add = () => {
+  const navigation = useNavigation();
+  const [toggleSave, setToggleSave] = useState(false);
   const [selectedOption, setSelectedOption] = useState("exercise");
-  const [numberOfExercises, setNumberOfExercises] = useState([]);
+  const [exercises, setExercises] = useState([1, 2, 3, 4, 5]);
+  const [signed] = useState(false);
 
-  const addNewExercise = () => {
-    let newArray = [...numberOfExercises];
-    newArray.push(1);
-    setNumberOfExercises(newArray);
+  const handleSave = () => {
+    setToggleSave(!toggleSave);
+    if (!exercises.length && !toggleSave) {
+      return Alert.alert("Ops!", "Não há treinos a serem salvos");
+    }
+
+    if (!toggleSave) {
+      Alert.alert(
+        "Treino salvo!",
+        "Seu treino foi criado e aparecerá agora nas buscas"
+      );
+      navigation.navigate("BUSCAR");
+
+      setExercises([]);
+    }
   };
 
-  const deleteExercise = (index) => {
-    let newArray = [...numberOfExercises];
-    newArray.splice(index, 1);
-    setNumberOfExercises(newArray);
+  const handleAddWorkout = () => {
+    navigation.navigate("CONFIGURAÇÕES", { signed });
+    if (!signed) {
+      return Alert.alert(
+        "Ops!",
+        "É necessário estar logado para criar treinos."
+      );
+    }
+    navigation.navigate("AddWorkout", { exercise: null });
   };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header title="Adicionar novo" />
       <ScreenContainer>
-        <RadioContainer>
-          <Radio
-            _onPress={(item) => setSelectedOption(item.type)}
-            _selectedOption={selectedOption}
-            _options={newWorkoutOptions}
-            _direction="row"
-            marginTop={"10px"}
-            marginBottom={"20px"}
-          />
-        </RadioContainer>
-
         <Input
           marginBottom="20px"
           placeholder={`Título ${
@@ -76,29 +88,32 @@ const Add = () => {
           }`}
         />
         <Input placeholder="Autor" />
-        <AddButton onPress={() => addNewExercise()}>
-          <ButtonText>Novo campo</ButtonText>
+        <AddButton onPress={handleAddWorkout}>
+          <ButtonText>Criar exercício</ButtonText>
         </AddButton>
 
+        <Title>Exercícios adicionados</Title>
         <ExercisesList>
-          {numberOfExercises?.map((exercise, index) => (
-            <>
-              <Title>Exercício {index + 1}</Title>
-              <NewExercise key={index}>
-                <Input marginBottom="10px" placeholder="Nome do exercício" />
-                <Input marginBottom="10px" placeholder="3x12" />
-                <Input marginBottom="10px" placeholder="60s de descanso" />
-                <Input
-                  placeholder="Neste exercício, executar todas as séries até a falha"
-                  height="100px"
-                />
-                <DeletExerciseButton onPress={() => deleteExercise(index)}>
-                  <ButtonText>Deletar exercício {index + 1}</ButtonText>
-                </DeletExerciseButton>
+          {!exercises.length ? (
+            <ExerciseTitle>Nenhum exerício criado</ExerciseTitle>
+          ) : (
+            exercises.map((exercise, index) => (
+              <NewExercise
+                key={index}
+                onPress={() => navigation.navigate("AddWorkout", { exercise })}
+              >
+                <ExerciseTitle>Exercicio {index + 1}</ExerciseTitle>
               </NewExercise>
-            </>
-          ))}
+            ))
+          )}
         </ExercisesList>
+        <SaveButton onPress={handleSave}>
+          <AntDesign
+            name="save"
+            size={24}
+            color={toggleSave ? "red" : "white"}
+          />
+        </SaveButton>
       </ScreenContainer>
     </SafeAreaView>
   );

@@ -21,6 +21,7 @@ import Add from "./src/screens/add";
 import Favorites from "./src/screens/favorites";
 // Stack
 import Details from "./src/screens/details";
+import AddWorkout from "./src/screens/addWorkout";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -79,6 +80,7 @@ export default function StackNavigator() {
       <Stack.Navigator headerMode="none">
         <Stack.Screen name="Home" component={TabNavigator} />
         <Stack.Screen name="Detalhe" component={Details} />
+        <Stack.Screen name="AddWorkout" component={AddWorkout} />
       </Stack.Navigator>
     </NavigationContainer>
   );

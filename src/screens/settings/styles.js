@@ -20,3 +20,13 @@ export const ButtonText = styled.Text`
   color: #fff;
   font-weight: bold;
 `;
+
+export const CreateAccount = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.5,
+})`
+  background-color: #44bd32;
+  border-radius: 10px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+`;

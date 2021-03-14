@@ -8,17 +8,12 @@ import data from "../../data";
 import ScreenContainer from "../../components/Screen-container";
 import Card from "../../components/Card";
 import SearchInput from "../../components/SearchInput";
-import Modal from "../../components/Modal";
-
-// Icons
-import { Ionicons } from "@expo/vector-icons";
 
 // Styles
-import { ListContainer, SearchArea } from "./styles";
+import { ListContainer } from "./styles";
 
 const Search = () => {
   const [search, setSearch] = useState("");
-  const [modalVisible, setModalVisible] = useState(false);
 
   function filterItems(item) {
     const { name, author, type } = item;
@@ -36,25 +31,10 @@ const Search = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScreenContainer>
-        <SearchArea>
-          <SearchInput
-            placeholder="Buscar..."
-            onChangeText={(txt) => setSearch(txt.toLowerCase())}
-          />
-          <Ionicons
-            onPress={() => setModalVisible(true)}
-            name="filter-sharp"
-            size={24}
-            color="black"
-            style={{ marginLeft: 20 }}
-          />
-          <Modal
-            visible={modalVisible}
-            onRequestClose={() => setModalVisible(false)}
-            onFilter={() => {}}
-            filterHasChanged={() => {}}
-          />
-        </SearchArea>
+        <SearchInput
+          placeholder="Buscar..."
+          onChangeText={(txt) => setSearch(txt.toLowerCase())}
+        />
         <ListContainer>
           {data
             .filter((item) => filterItems(item))
